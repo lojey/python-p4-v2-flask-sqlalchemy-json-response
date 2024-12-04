@@ -21,12 +21,17 @@ def index():
         200
     )
 
-
-@app.route('/demo_json')
-def demo_json():
+@app.route('/demo_json1')
+def demo_json1():
     pet_json = '{"id": 1, "name" : "Fido", "species" : "Dog"}'
     return make_response(pet_json, 200)
 
-
+@app.route('/demo_json')
+def demo_json():
+    pet_dict = {'id': 1,
+                'name': 'Fido',
+                'species': 'Dog'
+                }
+    return make_response(pet_dict, 200)
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
